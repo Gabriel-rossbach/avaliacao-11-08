@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// This is the main entry point of the application.
+//teste PR
 void main() {
   runApp(const MyApp());
 }
