@@ -1,22 +1,32 @@
 import 'package:flutter/material.dart';
 
-class quantity_selector extends StatelessWidget {
-  const quantity_selector({super.key, required this._quantity});
+class QuantitySelector extends StatelessWidget {
+  const QuantitySelector({
+    super.key,
+    required this._quantity,
+    this.onDrencet,
+    this.onIncrement,
+  });
 
   final int _quantity;
+  final VoidCallback? onDrencet;
+  final VoidCallback? onIncrement;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          width: 32,
-          height: 32,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: Colors.black54),
+        GestureDetector(
+          onTap: onDrencet,
+          child: Container(
+            width: 32,
+            height: 32,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.black54),
+            ),
+            child: const Icon(Icons.remove, size: 18, color: Colors.black87),
           ),
-          child: const Icon(Icons.remove, size: 18, color: Colors.black87),
         ),
         SizedBox(
           width: 48,
@@ -30,14 +40,17 @@ class quantity_selector extends StatelessWidget {
             ),
           ),
         ),
-        Container(
-          width: 32,
-          height: 32,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: Colors.black54),
+        GestureDetector(
+          onTap: onIncrement,
+          child: Container(
+            width: 32,
+            height: 32,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.black54),
+            ),
+            child: const Icon(Icons.add, size: 18, color: Colors.black87),
           ),
-          child: const Icon(Icons.add, size: 18, color: Colors.black87),
         ),
       ],
     );

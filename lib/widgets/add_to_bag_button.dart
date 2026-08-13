@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class add_to_bag_button extends StatelessWidget {
-  const add_to_bag_button({super.key});
-
+class AddToBagButton extends StatelessWidget {
+  const AddToBagButton({super.key, required this.onPressed});
+  final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -12,12 +12,12 @@ class add_to_bag_button extends StatelessWidget {
           width: double.infinity,
           height: 52,
           child: ElevatedButton(
-            onPressed: null,
+            onPressed: onPressed,
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.black,
               foregroundColor: Colors.white,
-              disabledBackgroundColor: Colors.black,
-              disabledForegroundColor: Colors.white,
+              // disabledBackgroundColor: Colors.black,
+              // disabledForegroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(14),
               ),
